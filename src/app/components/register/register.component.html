@@ -1,0 +1,50 @@
+<div
+  class="z-index-1 bg-image"
+  style="
+    background-image: url('../../assets/images/bg_main.jpg');
+    height: 100vh;
+    background-position: center;
+  "
+>
+  <div class="container">
+    <h1 class="bg-primary text-danger text-center p-2">REGISTER USER</h1>
+
+    <form action="#">
+      <div class="form-row">
+        <div class="col-md-4 mb-3">
+          <label for="">First Name</label>
+          <input type="firstName" class="form-control" />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="col-md-4 mb-3">
+          <label for="">Last Name</label>
+          <input type="lastName" class="form-control" />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="col-md-4 mb-3">
+          <label for="">Email</label>
+          <input type="email" class="form-control" />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="col-md-4 mb-3">
+          <label for="">Password</label>
+          <input type="password" class="form-control" />
+        </div>
+      </div>
+
+      <button
+        type="submit"
+        class="btn btn-primary mt-3"
+        (click)="verifyEmail()"
+      >
+        Register
+      </button>
+    </form>
+  </div>
+</div>
