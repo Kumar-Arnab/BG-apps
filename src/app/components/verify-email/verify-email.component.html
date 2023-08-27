@@ -1,1 +1,51 @@
-<p>verify-email works!</p>
+<div
+  class="z-index-1 bg-image"
+  style="
+    background-image: url('../../assets/images/bg_main.jpg');
+    height : 100vh;
+    background-size:100% 100%;
+    background-repeat:no-repeat;
+  "
+>
+  <div class="container">
+    <h1 class="text-danger text-center p-2">
+      Verify User Email
+    </h1>
+
+    <form [formGroup]="verifyEmailForm" (ngSubmit)="submit()">
+      <div class="form-row" *ngIf="!tokenExpired">
+        <div class="col-md-4 mb-3">
+          <label for="">Enter the code</label>
+          <input type="text" class="form-control" placeholder="Enter Token" formControlName="token" />
+        </div>
+
+        <div class="alert alert-danger" *ngIf="token.touched && token.invalid">
+          <p *ngIf="token.errors?.required">Please check your mail and enter the token</p>
+      </div>
+      </div>
+
+      <div class="form-group p-2" *ngIf="!tokenExpired">
+        <button class="bg-primary text-white" (click)="resendToken()">
+          Token Expired?
+        </button>
+      </div>
+
+      <div class="form-row" *ngIf="tokenExpired">
+        <div class="col-md-4 mb-3">
+          <label for="">Enter the previous token</label>
+          <input type="text" class="form-control" placeholder="Enter Token" formControlName="newToken" />
+        </div>
+
+        <div class="alert alert-danger" *ngIf="newToken.touched && newToken.invalid">
+          <p *ngIf="newToken.errors?.required">Please check your mail and enter the token</p>
+      </div>
+      </div>
+
+      <button class="bg-primary text-white" (click)="fetchNewToken()"  *ngIf="tokenExpired">
+        Submit
+      </button>
+      
+      <button type="submit" class="btn btn-primary" [disabled]="verifyEmailForm.invalid"  *ngIf="!tokenExpired">Submit</button>
+    </form>
+  </div>
+</div>
