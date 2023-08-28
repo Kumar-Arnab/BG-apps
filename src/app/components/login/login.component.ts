@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthenticateRequestModel } from 'src/app/models/authenticate-request.model';
+import { AuthenticateResponseModel } from 'src/app/models/authentication-response.model';
+import { ResponseModel } from 'src/app/models/response.model';
+import { UserService } from 'src/app/services/user.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -11,10 +15,12 @@ import { environment } from 'src/environments/environment';
 export class LoginComponent implements OnInit {
 
   loginForm: any;
+  authenticateModel= new AuthenticateRequestModel();
+  error: string = '';
 
   constructor (
     private router: Router,
-    private fb: FormBuilder
+    private userService: UserService
   ) {}
 
   ngOnInit(): void {
@@ -50,6 +56,17 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    console.log('clicked login', this.loginForm.get('email').value, '   ', this.loginForm.get('password').value)
+    // console.log('clicked login', this.loginForm.get('email').value, '   ', this.loginForm.get('password').value)
+
+    this.authenticateModel.email = this.loginForm.get('email').value;
+    this.authenticateModel.password = this.loginForm.get('password').value;
+
+    this.userService.login(this.authenticateModel).subscribe((res: AuthenticateResponseModel) => {
+      localStorage.setItem('access_token', res.access_token);
+      console.log(res.access_token);
+    },
+    (error) => {
+      this.error = error?.error?.error;
+    });
   }
 }

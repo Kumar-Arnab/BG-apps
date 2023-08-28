@@ -26,7 +26,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     HttpClientXsrfModule.withOptions({
       cookieName: 'XSRF-TOKEN',
     }),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/services/user.service';
 import { environment } from 'src/environments/environment';
+import { RegisterRequest } from 'src/app/models/register-request.model';
+import { ResponseModel } from 'src/app/models/response.model';
 
 @Component({
   selector: 'app-register',
@@ -11,9 +14,14 @@ import { environment } from 'src/environments/environment';
 export class RegisterComponent implements OnInit {
 
   registerForm: any;
+  error: string = '';
+  registerModel = new RegisterRequest();
+  
 
   constructor(
-    private router: Router
+    private router: Router,
+    private userService: UserService,
+    
   ) {}
 
   ngOnInit(): void {
@@ -30,7 +38,7 @@ export class RegisterComponent implements OnInit {
       ]),
       password: new FormControl('', [
         Validators.required,
-        Validators.minLength(6)
+        Validators.minLength(5)
       ])
     });
   }
@@ -52,7 +60,21 @@ export class RegisterComponent implements OnInit {
   }
 
   register() {
-    this.router.navigate(['/validateEmail'])
+    
+    this.registerModel.firstName = this.registerForm.get('firstName').value;
+    this.registerModel.lastName = this.registerForm.get('lastName').value;
+    this.registerModel.email = this.registerForm.get('email').value;
+    this.registerModel.password = this.registerForm.get('password').value;
+
+    this.userService.registerUser(this.registerModel).subscribe(res => {
+      console.log(res.success);
+      this.router.navigate(['/validateEmail']);
+    },
+    (error) => {
+      this.error = error?.error?.error;
+    });
+
+    
   }
 
 }

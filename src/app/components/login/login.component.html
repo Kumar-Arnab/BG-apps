@@ -59,6 +59,9 @@
       </div>
 
       <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Login</button>
+      <div class="alert alert-danger" *ngIf="error != undefined &&  error.length > 0">
+        <p>{{ error }}</p>
+      </div>
     </form>
   </div>
 </div>

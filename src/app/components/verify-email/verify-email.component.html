@@ -42,10 +42,13 @@
       </div>
 
       <button class="bg-primary text-white" (click)="fetchNewToken()"  *ngIf="tokenExpired">
-        Submit
+        Ok
       </button>
       
       <button type="submit" class="btn btn-primary" [disabled]="verifyEmailForm.invalid"  *ngIf="!tokenExpired">Submit</button>
+      <div class="alert alert-danger" *ngIf="error.length > 0">
+        <p>{{ error }}</p>
+      </div>
     </form>
   </div>
 </div>
