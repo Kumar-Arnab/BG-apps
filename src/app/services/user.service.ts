@@ -40,4 +40,13 @@ export class UserService {
     return this.http.get<ResponseModel>(`${environment.devUrl}/api/auth/resendToken`, options);
   }
 
+  isLoggedIn(): boolean {
+    const jwtToken = localStorage.getItem('access_token');
+    return !!jwtToken;
+  }
+
+  getJwtToken(): string | null {
+    return localStorage.getItem('access_token');
+  }
+
 }

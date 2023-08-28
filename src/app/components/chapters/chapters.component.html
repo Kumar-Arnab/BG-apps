@@ -1,0 +1,13 @@
+<h1 class="text-primary text-left p-2">
+  Chapters
+</h1>
+
+<div *ngFor="let chapter of chapters; let i = index">
+    <div class="p-5 m-5 bg-light">
+        <h3 class="text-danger">Chapter {{ chapter.chapterNumber }}</h3>
+        <h4 class="pt-2 text-primary">{{ chapter.engTranslation }}</h4>
+        <h4 class="pt-2 text-success">{{ chapter.hindiMeaning }}</h4>
+        <p class="pt-2 text-success">{{ chapter.engMeaning }}</p>
+        <button class="btn btn-dark pt-2" (click)="readChapter(chapter.chapterId)">Read</button>
+    </div>
+</div>

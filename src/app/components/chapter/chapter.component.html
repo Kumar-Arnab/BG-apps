@@ -1,0 +1,23 @@
+<div class="container">
+    <h1 class="text-danger text-center p-2"> Chapter {{ chapter.chapterNumber }}</h1>
+
+    <h3 class="text-success text-center p-1">{{ chapter.engTranslation }}</h3>
+
+    <h3 class="text-success text-center p-1">{{ chapter.engTransliteration }}</h3>
+
+    <h3 class="text-success text-center p-1">{{ chapter.hindiName }}</h3>
+</div>
+
+<p class="text-danger p-2">Meaning</p>
+<div class="bg-secondary">
+    <p class="text-warning p-2">{{ chapter.engMeaning }}</p>
+    <p class="text-warning p-2">{{ chapter.hindiMeaning }}</p>
+</div>
+
+<p class="text-danger p-2">Summary</p>
+<div class="bg-secondary">
+    <p class="text-warning p-2">{{ chapter.engSummary }}</p>
+    <p class="text-warning p-2">{{ chapter.hindiSummary }}</p>
+</div>
+
+<button class="btn btn-dark pt-2" (click)="readSloka(chapter.chapterId)">Read Slokas</button>

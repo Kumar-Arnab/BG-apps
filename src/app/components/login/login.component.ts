@@ -44,15 +44,15 @@ export class LoginComponent implements OnInit {
   }
 
   registerUser() {
-    this.router.navigate(['/register'])
+    this.router.navigate(['/register']);
   }
 
   verifyEmail() {
-    this.router.navigate(['/validateEmail'])
+    this.router.navigate(['/validateEmail']);
   }
 
   resetPassword() {
-    this.router.navigate(['/resetPassword'])
+    this.router.navigate(['/resetPassword']);
   }
 
   login() {
@@ -64,6 +64,7 @@ export class LoginComponent implements OnInit {
     this.userService.login(this.authenticateModel).subscribe((res: AuthenticateResponseModel) => {
       localStorage.setItem('access_token', res.access_token);
       console.log(res.access_token);
+      this.router.navigate(['/chapters']);
     },
     (error) => {
       this.error = error?.error?.error;

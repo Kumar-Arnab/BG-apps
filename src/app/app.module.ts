@@ -10,6 +10,10 @@ import { VerifyEmailComponent } from './components/verify-email/verify-email.com
 import { PasswordResetComponent } from './components/password-reset/password-reset.component';
 import { VerifyPasswordComponent } from './components/verify-password/verify-password.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ChaptersComponent } from './components/chapters/chapters.component';
+import { ChapterComponent } from './components/chapter/chapter.component';
+import { SlokasComponent } from './components/slokas/slokas.component';
+import { SlokaComponent } from './components/sloka/sloka.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +22,11 @@ import { ReactiveFormsModule } from '@angular/forms';
     RegisterComponent,
     VerifyEmailComponent,
     PasswordResetComponent,
-    VerifyPasswordComponent
+    VerifyPasswordComponent,
+    ChaptersComponent,
+    ChapterComponent,
+    SlokasComponent,
+    SlokaComponent
   ],
   imports: [
     BrowserModule,
