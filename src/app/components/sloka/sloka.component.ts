@@ -25,7 +25,6 @@ export class SlokaComponent implements OnInit {
 
       this.gitaService.sloka(this.slokId).subscribe((res: SlokaModel) => {
         this.sloka = res;
-        console.log(this.sloka);
       });
     });
   }

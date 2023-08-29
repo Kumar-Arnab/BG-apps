@@ -41,7 +41,6 @@ export class VerifyPasswordComponent implements OnInit {
   }
 
   submit() {
-    // console.log('Received data:', this.email, '   ', this.newPassword);
     this.passwordModel.email = this.email;
     this.passwordModel.newPassword = this.newPassword;
 

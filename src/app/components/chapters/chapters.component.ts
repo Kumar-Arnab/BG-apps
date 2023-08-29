@@ -19,7 +19,6 @@ export class ChaptersComponent implements OnInit {
 
   ngOnInit(): void {
       this.gitaService.chapterList().subscribe((res: Chapter[]) => {
-        console.log(res)
         this.chapters = res;
       });
   }

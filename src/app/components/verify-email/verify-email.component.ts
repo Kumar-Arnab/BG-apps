@@ -65,7 +65,6 @@ export class VerifyEmailComponent implements OnInit {
   submit() {
     if (!this.tokenExpired){
       this.userService.verifyEmail(this.verifyEmailForm.get('token')?.value).subscribe(res => {
-        console.log(res.success)
         this.router.navigate(['/login']);
       },
       (error) => {

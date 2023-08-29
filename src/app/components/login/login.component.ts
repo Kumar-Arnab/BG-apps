@@ -56,14 +56,12 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    // console.log('clicked login', this.loginForm.get('email').value, '   ', this.loginForm.get('password').value)
 
     this.authenticateModel.email = this.loginForm.get('email').value;
     this.authenticateModel.password = this.loginForm.get('password').value;
 
     this.userService.login(this.authenticateModel).subscribe((res: AuthenticateResponseModel) => {
       localStorage.setItem('access_token', res.access_token);
-      console.log(res.access_token);
       this.router.navigate(['/chapters']);
     },
     (error) => {

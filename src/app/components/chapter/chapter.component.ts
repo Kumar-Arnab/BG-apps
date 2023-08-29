@@ -24,7 +24,6 @@ export class ChapterComponent implements OnInit {
 
       this.gitaService.chapter(this.chId).subscribe((res: Chapter) => {
         this.chapter = res;
-        console.log(this.chapter);
       });
     });
   }
