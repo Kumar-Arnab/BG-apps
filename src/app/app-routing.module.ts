@@ -9,6 +9,7 @@ import { ChaptersComponent } from './components/chapters/chapters.component';
 import { ChapterComponent } from './components/chapter/chapter.component';
 import { SlokasComponent } from './components/slokas/slokas.component';
 import { SlokaComponent } from './components/sloka/sloka.component';
+import { AuthGuard } from './services/auth-guard';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -17,10 +18,10 @@ const routes: Routes = [
   { path: 'validateEmail', component: VerifyEmailComponent },
   { path: 'resetPassword', component: PasswordResetComponent },
   { path: 'verifyPassword', component: VerifyPasswordComponent },
-  { path: 'chapters', component: ChaptersComponent },
-  { path: 'chapters/:ch_id', component: ChapterComponent },
-  { path: 'slokas/:ch_id', component: SlokasComponent },
-  { path: 'sloka/:slok_id', component: SlokaComponent },
+  { path: 'chapters', component: ChaptersComponent, canActivate: [AuthGuard] },
+  { path: 'chapters/:ch_id', component: ChapterComponent, canActivate: [AuthGuard] },
+  { path: 'slokas/:ch_id', component: SlokasComponent, canActivate: [AuthGuard] },
+  { path: 'sloka/:slok_id', component: SlokaComponent, canActivate: [AuthGuard] },
   { path: '**', component: LoginComponent }
 ];
 

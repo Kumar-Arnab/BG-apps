@@ -1,9 +1,10 @@
-<h1 class="text-primary text-left p-2">
+<app-header></app-header>
+    <h1 class="text-primary text-left p-2 mt-2">
     Slokas for Chapter {{ chId }}
   </h1>
   
   <div *ngFor="let slok of slokas; let i = index">
-      <div class="p-5 m-5 bg-light">
+      <div class="p-5 m-5">
           <h4 class="pt-2 text-primary">{{ slok.engMeaning }}</h4>
           <h4 class="pt-2 text-success">{{ slok.slokOriginal }}</h4>
           <button class="btn btn-dark pt-2" (click)="readSlok(slok.slokaId)">Read</button>

@@ -30,4 +30,8 @@ export class SlokaComponent implements OnInit {
     });
   }
 
+  slokList(chapterId: string) {
+    this.router.navigate(['/slokas', chapterId]);
+  }
+
 }

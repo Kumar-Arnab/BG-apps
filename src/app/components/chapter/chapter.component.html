@@ -1,3 +1,4 @@
+<app-header></app-header>
 <div class="container">
     <h1 class="text-danger text-center p-2"> Chapter {{ chapter.chapterNumber }}</h1>
 
@@ -8,16 +9,16 @@
     <h3 class="text-success text-center p-1">{{ chapter.hindiName }}</h3>
 </div>
 
-<p class="text-danger p-2">Meaning</p>
+<h4 class="text-danger p-2">Meaning</h4>
 <div class="bg-secondary">
     <p class="text-warning p-2">{{ chapter.engMeaning }}</p>
-    <p class="text-warning p-2">{{ chapter.hindiMeaning }}</p>
+    <p class="text-info p-2">{{ chapter.hindiMeaning }}</p>
 </div>
 
-<p class="text-danger p-2">Summary</p>
+<h4 class="text-danger p-2">Summary</h4>
 <div class="bg-secondary">
     <p class="text-warning p-2">{{ chapter.engSummary }}</p>
-    <p class="text-warning p-2">{{ chapter.hindiSummary }}</p>
+    <p class="text-info p-2">{{ chapter.hindiSummary }}</p>
 </div>
 
 <button class="btn btn-dark pt-2" (click)="readSloka(chapter.chapterId)">Read Slokas</button>

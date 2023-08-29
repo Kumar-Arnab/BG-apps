@@ -60,4 +60,14 @@ export class GitaService {
     return this.http.get<any>(`${environment.devUrl}/bg/api/slok`, { headers, params });
   }
 
+  logout(): Observable<void> {
+    const jwtToken = this.userService.getJwtToken();
+
+    const headers = {
+      Authorization: `Bearer ${jwtToken}`,
+    };
+
+    return this.http.post<void>(`${environment.devUrl}/api/auth/logout`, { headers });
+  }
+
 }

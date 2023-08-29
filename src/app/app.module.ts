@@ -14,6 +14,7 @@ import { ChaptersComponent } from './components/chapters/chapters.component';
 import { ChapterComponent } from './components/chapter/chapter.component';
 import { SlokasComponent } from './components/slokas/slokas.component';
 import { SlokaComponent } from './components/sloka/sloka.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { SlokaComponent } from './components/sloka/sloka.component';
     ChaptersComponent,
     ChapterComponent,
     SlokasComponent,
-    SlokaComponent
+    SlokaComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
